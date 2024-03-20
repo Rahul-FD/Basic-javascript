@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regx Validation</title>
+</head>
+<body>
+    <h1>Regx Validation</h1>
+    <input type="text" id="uname" onblur="regxValidationName(this, 'error1')" />
+    <span id="error1"></span><br><br>
+    <input type="password" id="upass" onblur="regxValidationPassword(this, 'error2')">
+    <span id="error2"></span><br><br>
+    <input type="email" id="uemail" onblur="regxValidationemail(this, 'error3')" />
+    <span id="error3"></span><br><br>
+    <input type="tel" id="umobile" onblur="regxValidationmobile(this, 'error4')">
+    <span id="error4"></span><br><br>
+
+    <script>
+        function regxValidationName(a, spnid){
+            let regXName = /^[a-zA-a-z]+$/;
+            if (regXName.test(a.value)){
+                document.getElementById(spnid).innerText = "";
+            }
+            else{
+                document.getElementById(spnid).innerText = "Enter valid";
+                document.getElementsByid(spnid).style.color = "khaki";
+            }
+        }
+
+        function regxValidationPassword(a,spnid){
+            let regXPassword = /^[a-zA-a-z0-9._-]{3,5}$/;
+            if (regXPassword.test(a.value)){
+                document.getElementById(spnid).innerText = "";
+            }
+            else{
+                document.getElementById(spnid).innerText = "Enter Valid";
+                document.getElementById(spnid).style.color = "khaki";
+            }
+        }
+        function regxValidationEmail(a, spnid) {
+        let regXEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        if (regXEmail.test(a.value)) {
+          document.getElementById(spnid).innerText = "";
+        } else {
+          document.getElementById(spnid).innerText = "Enter valid ";
+          document.getElementById(spnid).style.color = "khaki";
+        }
+      }
+
+      function regxValidationMobile(a, spnid) {
+        let regXMobile = /^([0|\+[0-9]{1,5})?([7-9][0-9]{9})$/;
+        if (regXMobile.test(a.value)) {
+          document.getElementById(spnid).innerText = "";
+        } else {
+          document.getElementById(spnid).innerText = "Enter valid ";
+          document.getElementById(spnid).style.color = "khaki";
+        }
+      }
+    </script>
+</body>
+</html>
